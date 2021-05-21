@@ -22,9 +22,20 @@ namespace AgendaMatic.WebApi.Controllers
                     Errors = null
                 };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                return new DefaultResponse<T>()
+                {
+                    Success = false,
+                    Errors = new ErrorModel[1]
+                    {
+                        new ErrorModel()
+                        {
+                            Code = "500",
+                            Message = ex.Message
+                        }
+                    }
+                };
             }
         }
     }

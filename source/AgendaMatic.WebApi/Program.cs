@@ -1,3 +1,4 @@
+using AgendaMatic.WebApi.Config;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
@@ -10,6 +11,7 @@ namespace AgendaMatic.WebApi
         {
             CreateWebHostBuilder(args)
                 .Build()
+                .MigrateDatabase()
                 .Run();
         }
 
